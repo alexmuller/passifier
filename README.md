@@ -86,14 +86,20 @@ assets = {
 
 Give Passifier some info about your `.pem` files.
 
-(to-do: more info on obtaining certificates and creating pem files)
+To get your certificates and keys in order, follow these steps:
+
+1. Sign in to the iOS Provisioning Portal, add a Pass Type ID, download the certificate
+2. Add the `.cer` file you're given to your keychain
+3. Right click on the certificate, export it to `Certificates.p12`, create a secure password when prompted
+4. `openssl pkcs12 -in Certificates.p12 -clcerts -nokeys -out certificate.pem -passin pass:<THAT_SECRET_PASSWORD>`
+5. `openssl pkcs12 -in Certificates.p12 -nocerts -out key.pem -passin pass:<THAT_SECRET_PASSWORD> -passout pass:<ANOTHER_SECRET_PASSWORD>`
 
 Download the [Worldwide Developer Relations](https://www.apple.com/certificateauthority/)
-certificate to include in the signature.
+certificate and export it as a `.pem` file to include in the signature.
 
 ```ruby
 key_pem = "path/to/a/key.pem"
-pass_phrase = "somethingsomething"
+pass_phrase = "<ANOTHER_SECRET_PASSWORD>"
 cert_pem = "path/to/a/certificate.pem"
 wwdr_pem = "path/to/the/wwdr_certificate.pem"
 
