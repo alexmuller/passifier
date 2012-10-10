@@ -84,17 +84,21 @@ assets = {
 
 ### Signing
 
-Give Passifier some info about your .pem files.  
+Give Passifier some info about your `.pem` files.
 
 (to-do: more info on obtaining certificates and creating pem files)
+
+Download the [Worldwide Developer Relations](https://www.apple.com/certificateauthority/)
+certificate to include in the signature.
 
 ```ruby
 key_pem = "path/to/a/key.pem"
 pass_phrase = "somethingsomething"
 cert_pem = "path/to/a/certificate.pem"
+wwdr_pem = "path/to/the/wwdr_certificate.pem"
 
 # Create a Signing object
-signing = Passifier::Signing.new(key_pem, pass_phrase, cert_pem)
+signing = Passifier::Signing.new(key_pem, pass_phrase, cert_pem, wwdr_pem)
 ```
 
 ### Generate!

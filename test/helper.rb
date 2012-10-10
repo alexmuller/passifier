@@ -97,7 +97,7 @@ module Helper
   end
   
   def new_manifest
-    Manifest.new(new_image_files, MockSigning.new)
+    Manifest.new(new_image_files, new_spec)
   end
 
   def new_manifest_signature

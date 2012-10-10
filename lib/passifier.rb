@@ -5,6 +5,7 @@ require "forwardable"
 require "json"
 require "net/http"
 require "zip/zip"
+require "digest/sha1"
 
 # modules
 require "passifier/signing"

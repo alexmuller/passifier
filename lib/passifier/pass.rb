@@ -21,7 +21,7 @@ module Passifier
       @signing = signing
       @spec = Spec.new(serial_number, spec_hash)
       @asset_files = to_asset_files(assets)
-      @manifest = Manifest.new(@asset_files, signing)
+      @manifest = Manifest.new(@asset_files, @spec)
       @signature = ManifestSignature.new(@manifest, signing)
     end
 
